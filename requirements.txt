@@ -1,0 +1,13 @@
+matplotlib
+scikit-image
+scikit-learn
+pandas
+torchvision
+tqdm
+torch
+numpy
+seaborn
+lifelines
+sklearn
+scipy==1.2.1
+openslide-python

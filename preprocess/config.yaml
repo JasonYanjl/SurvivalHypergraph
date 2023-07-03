@@ -1,0 +1,49 @@
+
+
+# data path
+data_root: &d_r /media/ddl/My Book Duo/TCGA-GBM/data
+tumor_data_folder: !join [*d_r, Tumor]
+tumor_anno_folder: !join [*d_r, Tumor_anno]
+normal_data_folder: !join [*d_r, Normal]
+
+# result path
+result_root: &r_r /media/ddl/My Book Duo/TCGA-GBM/data
+preprocess_folder: &p_f !join [*r_r, 'preprocess']
+coor_folder: !join [*p_f, 'coor']
+vis_folder: !join [*p_f, 'vis']
+heatmap_folder: !join [*r_r, 'heatmap']
+split_file: !join [*p_f, 'split.json']
+val_slide_dir_list: !join [*p_f, 'val_slide.txt']
+model_save_file: !join [*r_r, 'model_best.pth']
+
+
+# preprocess
+regenerate_patch: True
+redivide_train_val: False
+frac: 32
+patch_size: 224
+background_filter: False
+patch_each_slide: 2000
+val_ratio: 0.2
+
+# visualization
+vis_patch: False
+vis_patch_position: True
+vis_anno_mask: True
+alpha: 0.7
+
+# train
+device: 4,5,6,7
+slide_each_block: 8
+batch_size: 512
+num_workers: 4
+max_epoch: 20
+
+# generate heatmap
+test_file: /home/ddl/data/Pathology_guizhou/test_list.txt
+regenerate_heatmap: True
+windows_size: 1792
+#windows_size: 768
+#windows_size: 576
+hm_batch_size: 6
+
