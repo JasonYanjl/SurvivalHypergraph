@@ -50,7 +50,7 @@ mm_phi = 400
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-DATA_CRC_PATH = '/data/home/dl/'
+DATA_CRC_PATH = os.path.join(BASE_PATH, 'svs_directory')
 
 dataset_name = 'CRC-SYSU-SAH-HE'
 
@@ -63,7 +63,7 @@ def get_config(pick_dataset=None):
     else:
         exit(0)
 
-    svs_dir = result_root
+    svs_dir = DATA_CRC_PATH
     patch_ft_dir = os.path.join(data_root, 'CRC-SYSU-SAH-HE-feature')
 
     sampled_vis = os.path.join(result_root, 'sampled_vis')

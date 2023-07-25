@@ -36,7 +36,6 @@ def split_train_val_sensored(data_root, ratio=0.8, save_split_dir=None, resplit=
         status = lbls[patient]['status']
         time = lbls[patient]['survival_time']
         images = lbls[patient]['images']
-        dfs = lbls[patient]['dfs_event']
         for image_id in images:
             img_path = data_root + '/' + image_id + '.svs'
             all_dict[image_id] = {}
@@ -45,7 +44,6 @@ def split_train_val_sensored(data_root, ratio=0.8, save_split_dir=None, resplit=
             all_dict[image_id]['img_dir'] = img_path
             all_dict[image_id]['survival_time'] = time
             all_dict[image_id]['status'] = status
-            all_dict[image_id]['dfs_event'] = dfs
         survival_time_max = survival_time_max \
             if survival_time_max > time else time
 
@@ -265,10 +263,7 @@ class SlidePatch(Dataset):
         stv = st / self.st_max
         # stv = (self.st_min * (self.st_max - st)) / (st * (self.st_max - self.st_min))
         status = torch.tensor(self.data_dict[id]['status'])
-        dfs = torch.tensor(self.data_dict[id]['dfs_event']).float()
-        return stv, status, id, dfs
-        # return fts, st / self.st_max, status, id, dfs
-        # return fts, st / self.st_max, status, id
+        return stv, status, id
 
     def __len__(self) -> int:
         return len(self.id_list)
