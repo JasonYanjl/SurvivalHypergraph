@@ -4,6 +4,13 @@ The codes of "Stage II Colorectal Cancer Survival Prediction Through Exploring H
 
 
 
+## Pre-requisites:
+
+- Linux (tested on Ubuntu 20.04)
+- python (3.8.3), pytorch (1.10.0), torchvision (0.11.1), numpy (1.21.2), opencv-python (4.5.4), openslide-python (1.1.2), pandas (1.3.4), scikit-learn (1.0), scipy (1.7.1), lifelines (0.26.3), and tqdm (4.62.3)
+
+
+
 ## Installation Guide
 
 1. Install anaconda3 in the machine according to https://www.anaconda.com/
